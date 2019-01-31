@@ -1,0 +1,79 @@
+<div class="fondo-negro animated fadeIn" [ngClass]="_modal.oculto">
+
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">{{ titulo }}</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="cerrarModal()">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+            </div>
+            <form ngNativeValidate [formGroup]="forma" (ngSubmit)="registrarUsuario()" class="form-horizontal form-material">
+                <div class="modal-body mx-3">
+                    <div class="row">
+                        <div class="col">
+                            <div class="md-form mb-5">
+                                <i class="fas fa-user prefix grey-text"></i>
+                                <input formControlName="nombre" name="nombre" type="text" class="form-control" required mdbInputDirective>
+                                <label data-error="wrong" data-success="right" for="defaultForm-email">Nombre</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="md-form mb-5">
+                                <input formControlName="apellido" name="apellido" type="text" class="form-control" required mdbInputDirective>
+                                <label data-error="wrong" data-success="right" for="defaultForm-text">Apellido</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="md-form mb-5">
+                                <i class="fas fa-envelope prefix grey-text"></i>
+                                <input formControlName="email" name="email" type="email" class="form-control" required mdbInputDirective>
+                                <label data-error="wrong" data-success="right" for="defaultForm-text">Email</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="md-form mb-5">
+                                <i class="fas fa-user-tag prefix grey-text"></i>
+                                <input formControlName="username" name="username" type="text" class="form-control" required mdbInputDirective>
+                                <label data-error="wrong" data-success="right" for="defaultForm-text">Nombre de usuario</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="md-form mb-5">
+                                <i class="fas fa-lock prefix grey-text"></i>
+                                <input formControlName="password" name="password" type="password" class="form-control" required mdbInputDirective>
+                                <label data-error="wrong" data-success="right" for="defaultForm-password">Password</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="md-form mb-4">
+                                <input formControlName="password2" name="password" type="password" required class="form-control" mdbInputDirective>
+                                <label data-error="wrong" data-success="right" for="defaultForm-password">Repita su password</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group" *ngIf="forma['errors']?.sonIguales && !forma.pristine">
+                        <p class="text-danger">
+                            Las contraseñas deben ser iguales
+                        </p>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <div class="checkbox checkbox-primary p-t-0">
+                                <input formControlName="condiciones" name="condiciones" id="checkbox-signup" type="checkbox">
+                                <label for="checkbox-signup"> Estoy de acuerdo con los <a href="#">Terminos</a></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group modal-footer d-flex justify-content-center">
+                    <button mdbBtn color="default" class="waves-light" type="submit" mdbWavesEffect>Ingrese</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

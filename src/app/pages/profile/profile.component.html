@@ -1,0 +1,54 @@
+<div class="row animated fadeIn">
+    <div class="col-lg-7">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Perfil del usuario</h4>
+                <h6 class="card-subtitle">nombre del usuario</h6>
+                <form ngNativeValidate #f="ngForm" (ngSubmit)="guardar( f.value )" class="form p-t-20">
+                    <div class="form-group">
+                        <label for="exampleInputuname2">Nombre de usuario</label>
+                        <div class="input-group">
+                            <input [ngModel]="usuario.nombre" name="nombre" type="text" class="form-control" placeholder="Nombre de Usuario" required>
+                            <div class="input-group-addon"><i class="ti-heart"></i></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail2">Correo de Usuario</label>
+                        <div class="input-group">
+                            <input [ngModel]="usuario.email" [disabled]="usuario.google" name="email" type="email" class="form-control" placeholder="Correo del Usuario" required>
+                            <div class="input-group-addon"><i class="ti-email"></i></div>
+                        </div>
+                    </div>
+                    <div class="text-left">
+                        <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">
+                          <i class="fa fa-save"></i>
+                          Guardar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-5">
+        <div class="card">
+            <div class="card-body" align="center">
+                <h4 class="card-title">Fotografía del usuario</h4>
+                <h6 class="card-subtitle">{{ usuario.nombre }}</h6>
+
+                <img *ngIf="!imagenTemp" [src]="usuario.img | imagen" class="w150">
+                <img *ngIf="imagenTemp" [src]="imagenTemp" class="w150">
+
+                <br><br>
+
+                <input (change)="seleccionImagen( $event.target.files[0] )" type="file">
+
+                <br><br>
+                <button (click)="cambiarImagen()" [disabled]="!subirArchivo" type="submit" class="btn btn-block btn-success waves-effect waves-light m-r-10">
+                  <i class="fa fa-save"></i>
+                  Actualizar
+              </button>
+            </div>
+        </div>
+    </div>
+</div>

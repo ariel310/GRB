@@ -1,0 +1,75 @@
+<div class="row animated fadeIn">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <input #input (keyup)="escriboBusqueda( input.value )" class="text" class="form-control" placeholder="Buscar obra social">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="cargando" class="row animated fadeIn">
+    <div class="col-sm-12">
+
+        <div class="alert alert-warning text-center">
+
+            <strong>Cargando</strong>
+            <br>
+            <i class="fa fa-refresh fa-spin fa-2x"></i>
+            <br>
+            <span>Espere por favor</span>
+        </div>
+
+    </div>
+</div>
+
+<div *ngIf="!cargando" class="row animated fadeIn">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="izquierda">
+                    <h3 class="card-title">
+                        Obras Sociales Registradas ( <small>{{ total }}</small> )
+                    </h3>
+                </div>
+                <div class="derecha">
+                    <button (click)="nuevaOS()" type="button" class="btn waves-effect waves-light btn-rounded btn-primary">
+                        <i class="fa fa-plus"></i>
+                        Nueva Obra Social
+                    </button>
+                </div>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Obra Social</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let os of oss">
+                            <td class="left-middle-cell greater-cell">
+                                {{ os.nombre }}
+                            </td>
+                            <td class="right-cell">
+                                <button (click)="guardarOS( os )" type="button" class="btn btn-circle btn-primary margin-right-10">
+                                    <i class="fa fa-edit"></i>
+                                </button>
+                                <button (click)="borrarOS( os )" type="button" class="btn btn-circle btn-danger">
+                                    <i class="fa fa-trash-o"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <button (click)="cambiarDesde(-5)" type="button" class="btn btn-secondary">
+                  Anteriores
+                </button>
+                <button (click)="cambiarDesde(5)" type="button" class="btn btn-secondary">
+                  Siguientes
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>

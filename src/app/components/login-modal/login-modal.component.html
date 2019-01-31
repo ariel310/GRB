@@ -1,0 +1,30 @@
+<div class="fondo-negro animated fadeIn" [ngClass]="_modal.oculto">
+
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">{{ titulo }}</h4>
+                <button type="button" class="close" aria-label="Close" (click)="cerrarModal()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <br>
+            <form ngNativeValidate #f="ngForm" class="form-horizontal form-material" (ngSubmit)="ingresar( f )">
+                <div class="modal-body mx-3">
+                    <div class="md-form mb-5">
+                        <i class="fa fa-envelope fa-2x prefix grey-text col-md-2"></i>
+                        <input [ngModel]="email" name="email" class="form-control col-md-10" type="email" required placeholder="Email">
+                    </div>
+                    <div class="md-form mb-4">
+                        <i class="fa fa-lock fa-2x prefix grey-text col-md-2"></i>
+                        <input ngModel name="password" class="form-control col-md-10" type="password" required placeholder="Contraseña">
+                    </div>
+                </div>
+                <div class="form-group modal-footer d-flex justify-content-center">
+                    <!-- <button class="btn btn-rounded btn-warning" type="submit">Ingrese</button> -->
+                    <button class="btn btn-info btn-md btn-block text-uppercase btn-rounded" type="submit">Ingresar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
