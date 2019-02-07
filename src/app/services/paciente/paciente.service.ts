@@ -26,6 +26,7 @@ export class PacienteService {
     return this.http.get( url )
     .pipe( map( (resp: any) => {
       this.total = resp.total;
+      console.log(resp);
       return resp.paciente;
     }));
   }

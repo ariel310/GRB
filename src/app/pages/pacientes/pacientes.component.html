@@ -21,7 +21,7 @@
                     </h3>
                 </div>
                 <div class="derecha">
-                    <button [routerLink]="['/paciente','nuevo']" routerLinkActive="router-link-active" type="button" class="btn waves-effect waves-light btn-rounded btn-primary">
+                    <button [routerLink]="['/paciente']" routerLinkActive="router-link-active" type="button" class="btn waves-effect waves-light btn-rounded btn-primary">
                         <i class="fa fa-plus"></i>
                         Crear Pacientes
                     </button>
@@ -32,12 +32,22 @@
                             <th>Nombre</th>
                             <th>Apellido</th>
                             <th>OS</th>
+                            <th>planOS</th>
+                            <th>afiliado</th>
+                            <th>telCelular</th>
+                            <th>telFijo</th>
+                            <th>email</th>
+                            <th>domicilio</th>
+                            <th>fechaNac</th>
+                            <th>sexo</th>
+                            <th>profesion</th>
+                            <th>dni</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let pac of paciente">
-                            <td class="w70" (click)="abrirModal( pac._id )">
+                        <tr *ngFor="let pac of paciente" (click)="abrirModal( pac._id )">
+                            <td>
                                 {{ pac.nombre }}
                             </td>
                             <td>
@@ -45,6 +55,36 @@
                             </td>
                             <td>
                                 {{ pac.os }}
+                            </td>
+                            <td>
+                                {{ pac.planOS }}
+                            </td>
+                            <td>
+                                {{ pac.afiliado }}
+                            </td>
+                            <td>
+                                {{ pac.telCelular }}
+                            </td>
+                            <td>
+                                {{ pac.telFijo }}
+                            </td>
+                            <td>
+                                {{ pac.email }}
+                            </td>
+                            <td>
+                                {{ pac.domicilio }}
+                            </td>
+                            <td>
+                                {{ pac.fechaNac }}
+                            </td>
+                            <td>
+                                {{ pac.sexo }}
+                            </td>
+                            <td>
+                                {{ pac.profesion }}
+                            </td>
+                            <td>
+                                {{ pac.dni }}
                             </td>
                             <td class="right-cell">
                                 <button [routerLink]="['/paciente', pac._id ]" type="button" class="btn btn-circle btn-primary margin-right-10">

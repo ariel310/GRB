@@ -9,6 +9,7 @@ import { PagesComponent } from './pages.component';
 import { SharedModule } from '../shared/shared.module';
 import { TableComponent } from './table/table.component';
 import { ChartsModule } from 'ng2-charts';
+import { NgxTypeaheadModule } from 'ngx-typeahead';
 
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 import { GraficoDonaComponent } from '../components/grafico/grafico-dona/grafico-dona.component';
@@ -27,6 +28,7 @@ import { MedicoComponent } from './medicos/medico.component';
 import { PacienteNuevoComponent } from './paciente-nuevo/paciente-nuevo.component';
 import { PacientesComponent } from './pacientes/pacientes.component';
 import { TurnosComponent } from './turnos/turnos.component';
+import { PacienteComponent } from './pacientes/paciente.component';
 
 @NgModule({
     declarations: [
@@ -48,7 +50,8 @@ import { TurnosComponent } from './turnos/turnos.component';
         MedicoComponent,
         PacienteNuevoComponent,
         PacientesComponent,
-        TurnosComponent],
+        TurnosComponent,
+        PacienteComponent],
         exports: [
             DashboardComponent,
             ProgressComponent,
@@ -63,7 +66,8 @@ import { TurnosComponent } from './turnos/turnos.component';
             ChartsModule,
             BrowserModule,
             ServiceModule,
-            PipesModule
+            PipesModule,
+            NgxTypeaheadModule
         ]
 })
 

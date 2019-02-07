@@ -11,13 +11,14 @@ export class RxjsComponent implements OnInit, OnDestroy {
 
   subscription: Subscription;
 
+
   constructor() {
 
-    this.subscription = this.regresaObservable()
-    .subscribe(
-      numero => console.log('Subs', numero),
-      error => console.error('Error en el obs', error ),
-      () => console.log('El observador termino')
+     this.subscription = this.regresaObservable()
+     .subscribe(
+       numero => console.log('Subs', numero),
+       error => console.error('Error en el obs', error ),
+       () => console.log('El observador termino')
     );
 
   }
@@ -55,5 +56,4 @@ export class RxjsComponent implements OnInit, OnDestroy {
         })
     );
   }
-
 }

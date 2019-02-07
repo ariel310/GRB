@@ -16,10 +16,10 @@ export class UsuariosComponent implements OnInit {
   @ViewChild('input') inputValue: ElementRef;
 
   usuarios: Usuario[] = [];
-  desde: number = 0;
-  total: number = 0;
-  cargando: boolean = true;
-  termino: string = '';
+  desde = 0;
+  total = 0;
+  cargando = true;
+  termino = '';
 
   constructor(public _usuario: UsuarioService,
     public _modalUpload: ModalUploadService
